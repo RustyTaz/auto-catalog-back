@@ -6,8 +6,12 @@ const carRouter = require("./routes/car.route");
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+let cors = require('cors');
+
+app.use(cors());
+
 app.get("/", (req, res) => {
-	res.send("Send reqeust...");
+	res.send("Send request...");
 });
 
 app.use(express.json());
