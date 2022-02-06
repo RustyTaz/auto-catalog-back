@@ -14,7 +14,7 @@ class CarController {
 	async getOneCar(req, res) {
 		const id = req.params.id;
 		const car = await db.query(`SELECT * FROM car where id=$1`, [id]);
-		res.json(car.rows);
+		res.json(car.rows[0]);
 	}
 
 	// async getCarsByBrand(req, res) {
