@@ -3,6 +3,7 @@ const guestRouter = require("./routes/guest.route");
 const brandRouter = require("./routes/brand.route");
 const carRouter = require("./routes/car.route");
 const newsRouter = require("./routes/news.route");
+const authRouter= require("./routes/auth.route");
 const browserObject = require('./parser/browser');
 const scraperController = require('./parser/pageController');
 
@@ -25,5 +26,15 @@ app.use("/api", guestRouter);
 app.use("/api", brandRouter);
 app.use("/api", carRouter);
 app.use("/api", newsRouter);
+app.use("/auth", authRouter);
 
-app.listen(PORT, () => console.log(`Server live on port ${PORT}`));
+
+const start=()=>{
+	try{
+		app.listen(PORT, () => console.log(`Server live on port ${PORT}`));
+	}
+	catch (e){
+		console.log(e)
+	}
+}
+start();
